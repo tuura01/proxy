@@ -18,7 +18,6 @@ router.get('/', cache('2 minutes'), async (req, res) => {
         const apiUrl = await axios.get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&playlistId=${playlistId}&key=${API_KEY}&maxResults=50${nextPageToken ? `&pageToken=${nextPageToken}` : ''}`);
         const playlistItems = apiUrl.data.items;
         nextPageToken = apiUrl.data.nextPageToken;
-        console.log(nextPageToken);
         if (playlistItems) {
           allVideosInPlaylist = [...allVideosInPlaylist, ...playlistItems];
         } else {
