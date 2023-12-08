@@ -3,8 +3,6 @@ const cors = require('cors');
 require('dotenv').config();
 const rateLimit = require('express-rate-limit')
 
-//need to do: send playlist id to api
-
 const PORT = process.env.PORT || 80
 
 const app = express()
